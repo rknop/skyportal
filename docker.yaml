@@ -1,9 +1,9 @@
 database:
     database: skyportal
-    host: db
+    host: postgres
     port: 5432
-    user: skyportal
-    password: password
+    user: postgres
+    password: 2h16u957kdxt
 
 server:
     port: 5000 # Internal port
