@@ -22,8 +22,9 @@ def send_email(recipients, subject, body):
         sendgrid_client.send(message)
     elif cfg.get("email_service") == "smtp":
         smtp_server = smtplib.SMTP(cfg["smtp.host"], cfg["smtp.port"])
-        smtp_server.starttls()
-        smtp_server.login(cfg["smtp.from_email"], cfg["smtp.password"])
+        if ( cfg["smtp.password"] is not None ) and ( len( cfg["smtp.password"] ) > 0 ):
+            smtp_server.starttls()
+            smtp_server.login(cfg["smtp.from_email"], cfg["smtp.password"])
         msg = MIMEMultipart()
         msg["From"] = cfg["smtp.from_email"]
         msg["To"] = ", ".join(recipients)
