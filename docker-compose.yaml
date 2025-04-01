@@ -12,6 +12,9 @@ services:
       # cf. https://stackoverflow.com/a/35222815
       - thumbnails:/skyportal/static/thumbnails:z
       - persistentdata:/skyportal/persistentdata:z
+    # ****
+    user: 0:0
+    # ****
 
   db:
     image: postgres:14.4
